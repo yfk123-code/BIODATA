@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muslim Bio Data Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕌 Muslim Bio Data Creator</h1>
+            <p>Create and Share Beautiful Bio Data Profiles</p>
+        </div>
+
+        <div class="main-content">
+            <div class="welcome-section" id="welcomeSection">
+                <h2 style="color: #2c3e50; margin-bottom: 20px;">Welcome to Bio Data Creator</h2>
+                <p style="color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em;">
+                    Create professional Muslim bio data profiles with photos and share them directly on WhatsApp
+                </p>
+                <button class="create-btn" onclick="showForm()">
+                    ✨ Create Muslim Bio Data
+                </button>
+            </div>
+
+            <div class="form-container" id="formContainer">
+                <button class="back-btn" onclick="showWelcome()">← Back to Home</button>
+                
+                <form id="biodataForm">
+                    <!-- Photo Upload Section -->
+                    <div class="form-section">
+                        <h3>Profile Photo</h3>
+                        <div class="photo-upload-container">
+                            <div class="photo-preview" id="photoPreview">
+                                <div class="photo-placeholder">
+                                    <span>📷</span>
+                                    <p>Click to upload photo</p>
+                                </div>
+                            </div>
+                            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                            <button type="button" class="upload-btn" onclick="document.getElementById('photoInput').click()">
+                                📸 Upload Photo
+                            </button>
+                            <button type="button" class="remove-btn" id="removePhoto" onclick="removePhoto()" style="display: none;">
+                                🗑️ Remove Photo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Gender *</label>
+                                <div class="gender-options">
+                                    <div class="gender-option">
+                                        <input type="radio" id="male" name="gender" value="Male" required>
+                                        <label for="male">👨 Male</label>
+                                    </div>
+                                    <div class="gender-option">
+                                        <input type="radio" id="female" name="gender" value="Female" required>
+                                        <label for="female">👩 Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age *</label>
+                                <input type="number" id="age" name="age" min="18" max="100" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="maritalStatus">Marital Status *</label>
+                                <select id="maritalStatus" name="maritalStatus" required>
+                                    <option value="">Select Status</option>
+                                    <option value="Never Married">Never Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Height</label>
+                                <input type="text" id="height" name="height" placeholder="e.g., 5'6&quot;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="complexion">Complexion</label>
+                                <select id="complexion" name="complexion">
+                                    <option value="">Select Complexion</option>
+                                    <option value="Fair">Fair</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Dark">Dark</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Education & Work</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qualification">Qualification</label>
+                                <input type="text" id="qualification" name="qualification" placeholder="e.g., Bachelor's in Engineering">
+                            </div>
+                            <div class="form-group">
+                                <label for="work">Work/Job</label>
+                                <input type="text" id="work" name="work" placeholder="e.g., Software Engineer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Family Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fatherName">Father's Name</label>
+                                <input type="text" id="fatherName" name="fatherName">
+                            </div>
+                            <div class="form-group">
+                                <label for="motherName">Mother's Name</label>
+                                <input type="text" id="motherName" name="motherName">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="brothers">Brothers</label>
+                                <input type="text" id="brothers" name="brothers" placeholder="e.g., 2 (1 Married)">
+                            </div>
+                            <div class="form-group">
+                                <label for="sisters">Sisters</label>
+                                <input type="text" id="sisters" name="sisters" placeholder="e.g., 1 (Unmarried)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Contact & Requirements</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" placeholder="Full address..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact Number *</label>
+                                <input type="tel" id="contact" name="contact" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="requirement">Requirements</label>
+                            <textarea id="requirement" name="requirement" placeholder="What are you looking for in a life partner..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="otherNotes">Other Notes</label>
+                            <textarea id="otherNotes" name="otherNotes" placeholder="Any additional information..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        📋 Generate Bio Data
+                    </button>
+                </form>
+            </div>
+
+            <div class="preview-section" id="previewSection">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📱 WhatsApp Preview</h3>
+                <div class="preview-content" id="previewContent"></div>
+                <button class="share-btn" onclick="shareToWhatsApp()">
+                    📱 Share on WhatsApp
+                </button>
+                <button class="back-btn" onclick="showForm()" style="margin-top: 10px; width: 100%;">
+                    ← Edit Bio Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
